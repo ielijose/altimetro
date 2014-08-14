@@ -1,0 +1,39 @@
+html, body, #map-canvas {
+	    	height: 100%;
+	    	margin: 0px;
+	    	padding: 0px;
+	    	position: relative;
+	    	z-index: 1;
+	    }
+
+	    *{
+	    	cursor:crosshair;
+	    	font-family: helvetica;
+	    }
+
+	    #score{
+	    	height: 100px;
+	    	width: 100px;
+	    	position: absolute;
+	    	z-index: 99;
+	    	top: 10px; left: 10px;
+	    }
+	    #menu
+	    {
+	    	position:absolute;
+	    	top:10px;  /* adjust value accordingly */
+	    	left: 90px;  /* adjust value accordingly */
+	    	height: 100px;
+	    	width: 240px;
+	    	z-index: 99;
+	    	background: rgba(255,255,255,0.7);
+	    	float: left;
+	    	text-align: center;
+	    }
+	    #menu h1{
+	    	font-size: 40px;
+	    	color: #e74c3c;
+	    }
+	    #menu h1:after{
+	    	content: ' m'
+	    }
