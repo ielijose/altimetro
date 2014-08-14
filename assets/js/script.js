@@ -1,18 +1,24 @@
 var elevator;
 var map;
 var infowindow = new google.maps.InfoWindow();
-var denali = new google.maps.LatLng(10.546991509229592,-71.52147931046784);
+var denali;
 
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(setCenter);
+    navigator.geolocation.getCurrentPosition(setCenter, setCenterDefault);
   } else {
     alert("Geolocation is not supported by this browser.");
   }
 }
 
 function setCenter(pos){
-  alert(pos);
+  console.log(pos);
+  var crd = pos.coords;
+  denali = new google.maps.LatLng(crd.latitude,crd.longitude);
+}
+
+function setCenterDefault(){
+  denali = new google.maps.LatLng(10.546991509229592,-71.52147931046784);
 }
 
 function initialize() {
