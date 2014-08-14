@@ -1,35 +1,29 @@
 var elevator;
 var map;
-var infowindow = new google.maps.InfoWindow();
-window.denali = 0;
+
+window.mapOptions = {};
 
 function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(setCenter, setCenterDefault);
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      window.mapOptions = {
+        zoom: 8,
+        center: new google.maps.LatLng(position.coords.latitude,position.coords.longitude),
+        mapTypeId: 'terrain'
+      }
+    });
+
   } else {
-    window.denali = new google.maps.LatLng(10.546991509229592,-71.52147931046784);
+    window.mapOptions = {
+      zoom: 8,
+      center: new google.maps.LatLng(10.546991509229592,-71.52147931046784);
+      mapTypeId: 'terrain'
+    }
   }
 }
 
-function setCenter(pos){
-  console.log(pos);
-  var crd = pos.coords;
-  window.denali = new google.maps.LatLng(crd.latitude,crd.longitude);
-}
 
-function setCenterDefault(){
-  window.denali = new google.maps.LatLng(10.546991509229592,-71.52147931046784);
-}
-
-function initialize() {
-  console.log(window.denali);
-  getLocation();
-  console.log(window.denali);
-  var mapOptions = {
-    zoom: 8,
-    center: window.denali,
-    mapTypeId: 'terrain'
-  }
+function initialize() {  
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
   var myTitle = document.createElement('h3');
