@@ -23,6 +23,7 @@ function getLocation() {
 
 function initialize() {  
   getLocation();
+  console.log(window.mapOptions);
   map = new google.maps.Map(document.getElementById('map-canvas'), window.mapOptions);
 
   var myTitle = document.createElement('h3');
