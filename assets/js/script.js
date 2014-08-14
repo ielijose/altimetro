@@ -1,9 +1,14 @@
 var elevator;
 var map;
 
-window.mapOptions = {};
+window.mapOptions = {
+      zoom: 8,
+      center: new google.maps.LatLng(10.546991509229592,-71.52147931046784),
+      mapTypeId: 'terrain'
+    }
 
 function getLocation() {
+
   if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(function(position) {
       window.mapOptions = {
@@ -12,19 +17,13 @@ function getLocation() {
         mapTypeId: 'terrain'
       }
     });
-
-  } else {
-    window.mapOptions = {
-      zoom: 8,
-      center: new google.maps.LatLng(10.546991509229592,-71.52147931046784),
-      mapTypeId: 'terrain'
-    }
   }
 }
 
 
 function initialize() {  
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  getLocation();
+  map = new google.maps.Map(document.getElementById('map-canvas'), window.mapOptions);
 
   var myTitle = document.createElement('h3');
   myTitle.style.color = 'black';
