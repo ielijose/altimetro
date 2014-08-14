@@ -1,7 +1,7 @@
 var elevator;
 var map;
 var infowindow = new google.maps.InfoWindow();
-var window.denali;
+window.denali = 0;
 
 function getLocation() {
   if (navigator.geolocation) {
