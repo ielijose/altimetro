@@ -7,7 +7,7 @@ function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(setCenter, setCenterDefault);
   } else {
-    alert("Geolocation is not supported by this browser.");
+    denali = new google.maps.LatLng(10.546991509229592,-71.52147931046784);
   }
 }
 
@@ -22,7 +22,9 @@ function setCenterDefault(){
 }
 
 function initialize() {
+  console.log(denali);
   getLocation();
+  console.log(denali);
   var mapOptions = {
     zoom: 8,
     center: denali,
