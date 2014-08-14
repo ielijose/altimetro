@@ -16,7 +16,7 @@ function getLocation() {
   } else {
     window.mapOptions = {
       zoom: 8,
-      center: new google.maps.LatLng(10.546991509229592,-71.52147931046784);
+      center: new google.maps.LatLng(10.546991509229592,-71.52147931046784),
       mapTypeId: 'terrain'
     }
   }
